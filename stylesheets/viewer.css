@@ -18,7 +18,11 @@ html{
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
-	height: 100%;	
+	height: 100%;
+	overflow-y: hidden;
+	border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
 }
 body {
   margin: 0;
@@ -30,7 +34,7 @@ body {
   min-height: 600px;
   
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: hidden;
   
   -webkit-font-smoothing: antialiased;
 }
@@ -48,7 +52,7 @@ body {
   -webkit-border-radius: 20px;
 }
 
-.full_container{
+.slides > article{
 	position: absolute; 
     display: inline-block;
 	width: 90%;
@@ -61,7 +65,7 @@ body {
 	margin-top: 75%;  /*used for aspect ratio, is 75% of the width of the container*/
 }
 
-.full_container > article {
+.full_container  {
   display: block;
 
   position: absolute;
@@ -109,10 +113,10 @@ body {
 
 /* Slides */
 
-.full_container {
+.slides > article {
   display: none;
 }
-.full_container.far-past {
+.slides > article.far-past {
   display: inline-block;
   transform: translate(-230%);
   -o-transform: translate(-230%);
@@ -120,7 +124,7 @@ body {
   -moz-transform: translate(-230%);
   -webkit-transform: translate3d(-230%, 0, 0);
 }
-.full_container.past {
+.slides > article.past {
   display: inline-block;
   transform: translate(-115%);
   -o-transform: translate(-115%);
@@ -128,7 +132,7 @@ body {
   -moz-transform: translate(-115%);
   -webkit-transform: translate3d(-115%, 0, 0);
 }
-.full_container.current {
+.slides > article.current {
   display: inline-block;
   transform: translate(0);
   -o-transform: translate(0);
@@ -136,7 +140,7 @@ body {
   /*-moz-transform: translate(0); /* REMOVED BY KIKE, BECAUSE IT BROKE FIREFOX SWF PRESENTATION*/
   -webkit-transform: translate3d(0, 0, 0);
 }
-.full_container.next {
+.slides > article.next {
   display: inline-block;
   transform: translate(115%);
   -o-transform: translate(115%);
@@ -144,7 +148,7 @@ body {
   -moz-transform: translate(115%);
   -webkit-transform: translate3d(115%, 0, 0);
 }
-.full_container.far-next {
+.slides > article.far-next {
   display: inline-block;
   transform: translate(230%);
   -o-transform: translate(230%);
@@ -154,7 +158,7 @@ body {
 }
 
 /*added by KIKE to put the flashcard in the full slide*/
-.full_container.flashcard{
+.slides > article.flashcard{
   padding: 0;
 }
 

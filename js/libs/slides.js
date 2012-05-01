@@ -601,7 +601,7 @@ function makeBuildLists() {
 };
 
 function handleDomLoaded() {
-  slideEls = document.querySelectorAll('.slides > .full_container');
+  slideEls = document.querySelectorAll('.slides > article');
 
   setupFrames();
 
