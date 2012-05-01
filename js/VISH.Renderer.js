@@ -51,7 +51,7 @@ VISH.Renderer = (function(V,$,undefined){
 			}
 		}
 
-		SLIDE_CONTAINER.append("<article class='"+classes+"' id='"+slide.id+"'>"+content+"</article>");
+		SLIDE_CONTAINER.append("<div class='full_container'><div class='for_aspect_ratio'></div><article class='"+classes+"' id='"+slide.id+"'>"+content+"</article></div>");
 	};
 
 	/**

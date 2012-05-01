@@ -575,12 +575,12 @@ function addGeneralStyle() {
   var el = document.createElement('link');
   el.rel = 'stylesheet';
   el.type = 'text/css';
-  el.href = PERMANENT_URL_PREFIX + VISH.StylesheetsPath + 'styles.css';
+  el.href = PERMANENT_URL_PREFIX + VISH.StylesheetsPath + 'viewer.css';
   document.body.appendChild(el);
   
   var el = document.createElement('meta');
   el.name = 'viewport';
-  el.content = 'width=1100,height=750';
+  el.content = 'width=device-width, initial-scale=1.0';
   document.querySelector('head').appendChild(el);
   
   var el = document.createElement('meta');
@@ -601,7 +601,7 @@ function makeBuildLists() {
 };
 
 function handleDomLoaded() {
-  slideEls = document.querySelectorAll('section.slides > article');
+  slideEls = document.querySelectorAll('.slides > .full_container');
 
   setupFrames();
 

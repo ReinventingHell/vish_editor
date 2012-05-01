@@ -1,0 +1,226 @@
+/*
+  Google HTML5 slides template
+
+  Authors: Luke Mahé (code)
+           Marcin Wichary (code and design)
+           
+           Dominic Mazzoni (browser compatibility)
+           Charles Chen (ChromeVox support)
+
+  URL: http://code.google.com/p/html5slides/
+*/
+
+/* Framework */
+
+html{
+	background:url(../images/background.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	height: 100%;	
+}
+body {
+  margin: 0;
+  padding: 0;
+
+  display: block !important;
+
+  height: 100%;
+  min-height: 600px;
+  
+  overflow-x: hidden;
+  overflow-y: auto;
+  
+  -webkit-font-smoothing: antialiased;
+}
+
+.slides {	
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  position: relative;
+  display: inline-block;
+  -webkit-transform: translate3d(0, 0, 0);
+  border-radius: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+}
+
+.full_container{
+	position: absolute; 
+    display: inline-block;
+	width: 90%;
+  	max-width: 1100px;
+  	left: 5%;
+  	top: 5%;
+}
+
+.for_aspect_ratio {
+	margin-top: 75%;  /*used for aspect ratio, is 75% of the width of the container*/
+}
+
+.full_container > article {
+  display: block;
+
+  position: absolute;
+  overflow: hidden;
+
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  
+  padding: 4% 6%;
+
+  box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+
+  border-radius: 10px;
+  -o-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+
+  background-color: white;
+
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
+  border: 1px solid rgba(0, 0, 0, .3);
+
+  transition: transform .3s ease-out;
+  -o-transition: -o-transform .3s ease-out;
+  -ms-transition: -ms-transform .3s ease-out;
+  -moz-transition: -moz-transform .3s ease-out;
+  -webkit-transition: -webkit-transform .3s ease-out;
+  
+  font-family: 'Open Sans', Arial, sans-serif;
+
+  color: rgb(102, 102, 102);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .1);
+
+  font-size: 30px;
+  line-height: 36px;
+
+  letter-spacing: -1px;
+}
+
+
+/* Slides */
+
+.full_container {
+  display: none;
+}
+.full_container.far-past {
+  display: inline-block;
+  transform: translate(-230%);
+  -o-transform: translate(-230%);
+  -ms-transform: translate(-230%);  /* Added to fix explorer view*/
+  -moz-transform: translate(-230%);
+  -webkit-transform: translate3d(-230%, 0, 0);
+}
+.full_container.past {
+  display: inline-block;
+  transform: translate(-115%);
+  -o-transform: translate(-115%);
+  -ms-transform: translate(-115%);  /* Added to fix explorer view*/
+  -moz-transform: translate(-115%);
+  -webkit-transform: translate3d(-115%, 0, 0);
+}
+.full_container.current {
+  display: inline-block;
+  transform: translate(0);
+  -o-transform: translate(0);
+  -ms-transform: translate(0);  /* Added to fix explorer view*/
+  /*-moz-transform: translate(0); /* REMOVED BY KIKE, BECAUSE IT BROKE FIREFOX SWF PRESENTATION*/
+  -webkit-transform: translate3d(0, 0, 0);
+}
+.full_container.next {
+  display: inline-block;
+  transform: translate(115%);
+  -o-transform: translate(115%);
+  -ms-transform: translate(115%);  /* Added to fix explorer view*/
+  -moz-transform: translate(115%);
+  -webkit-transform: translate3d(115%, 0, 0);
+}
+.full_container.far-next {
+  display: inline-block;
+  transform: translate(230%);
+  -o-transform: translate(230%);
+  -ms-transform: translate(230%);  /* Added to fix explorer view*/
+  -moz-transform: translate(230%);
+  -webkit-transform: translate3d(230%, 0, 0);
+}
+
+/*added by KIKE to put the flashcard in the full slide*/
+.full_container.flashcard{
+  padding: 0;
+}
+
+/* buttons next and previous */
+.page-switcher {
+	background: transparent;	
+	border: none;
+	bottom: 0;
+	font-size: 40px;
+	padding: 0;
+	position: absolute;
+	margin: 0;
+	max-width: 150px;
+	min-width: 60px;
+	height: 100%;
+	outline: none;
+	top: 0;
+	width: 5%;
+	top: 0px; 
+	padding-bottom: 0px;
+	z-index: 1;
+	color: #666666;
+}
+
+.page-switcher:hover,
+.page-switcher:focus,
+.page-switcher.drag-target {
+  /*background-color: rgba(0,0,0, 0.06);  /* COLOR_NTP_TEXT */
+}
+
+#page-switcher-end{
+	right: 0px;
+}
+
+#page-switcher-start:hover{
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	/*background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwLjMiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);*/
+	background: -moz-linear-gradient(left, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0.1)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left, rgba(0,0,0,0.1) 0%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left, rgba(0,0,0,0.1) 0%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left, rgba(0,0,0,0.1) 0%,rgba(0,0,0,0) 100%); /* IE10+ */
+	background: linear-gradient(left, rgba(0,0,0,0.1) 0%,rgba(0,0,0,0) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4d000000', endColorstr='#00000000',GradientType=1 ); /* IE6-8 */
+	color: white;
+	border-radius: 20px 0px 0px 20px;
+    -moz-border-radius: 20px 0px 0px 20px;
+    -webkit-border-radius: 20px 0px 0px 20px;
+}
+
+#page-switcher-start{
+	left: 0px;
+}
+
+#page-switcher-end:hover{
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	/*background: url(data:image/svg+xml;	base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMC4zIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);*/
+	background: -moz-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left, rgba(0,0,0,0) 0%,rgba(0,0,0,0.1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left, rgba(0,0,0,0) 0%,rgba(0,0,0,0.1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left, rgba(0,0,0,0) 0%,rgba(0,0,0,0.1) 100%); /* IE10+ */
+	background: linear-gradient(left, rgba(0,0,0,0) 0%,rgba(0,0,0,0.1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#4d000000',GradientType=1 ); /* IE6-8 */
+	color: white;
+	border-radius: 0px 20px 20px 0px;
+    -moz-border-radius: 0px 20px 20px 0px;
+    -webkit-border-radius: 0px 20px 20px 0px;
+}

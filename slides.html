@@ -16,8 +16,12 @@
        }
     </style>
 
-  	  <meta name="viewport" content="width=900,height=750">
+  	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   	  <meta name="apple-mobile-web-app-capable" content="yes">
+  	  <!--[if lt IE 9]>
+    	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	  <![endif]-->
+  	  
 
 	  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
@@ -31,14 +35,15 @@
   
   <body onload="start()" style="display: none" class="loaded">
 
-    <section class="slides layout-regular template-default">
+    <section class="slides">
+    
 <button id="page-switcher-start" class="page-switcher" tabindex="2"><</button>
   <button id="page-switcher-end" class="page-switcher" tabindex="2" >></button>
     </section>
     
   
 
-<link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
+<link rel="stylesheet" type="text/css" href="stylesheets/viewer.css">
 <link rel="stylesheet" type="text/css" href="stylesheets/templates/pack1.css">
 <!--[if gte IE 8]>
   <link rel="stylesheet" type="text/css" href="stylesheets/templates/pack1explorer9.css">
@@ -71,8 +76,7 @@
 //uncomment VISH.SlideManager.init to show the example presentation (the json in VISH.Samples)
 //uncomment VISH.Editor.init to show the editor
 function start(){
-  VISH.SlideManager.init(VISH.Samples.full_samples);
-  //VISH.Editor.init();
+  VISH.SlideManager.init(VISH.Samples.samples);
 }
 </script>
 </body>
