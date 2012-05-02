@@ -10,7 +10,53 @@
   URL: http://code.google.com/p/html5slides/
 */
 
-/* Framework */
+@media (min-aspect-ratio: 12/3) {
+	body { background: black; }
+
+	.slides > article{
+		width: 25%;
+	}
+}
+
+@media (max-aspect-ratio: 12/3) {
+	body { background: blue; }
+
+	.slides > article{
+		width: 35%;
+	}
+}
+
+@media (max-aspect-ratio: 10/3) {
+	body { background: white; }
+
+	.slides > article{
+		width: 40%;
+	}
+}
+
+@media (max-aspect-ratio: 8/3) {
+	body { background: green; }
+
+	.slides > article{
+		width: 45%;
+	}
+}
+
+@media (max-aspect-ratio: 6/3) {
+	body { background: yellow; }
+
+	.slides > article{
+		width: 65%;
+	}
+}
+
+@media (max-aspect-ratio: 4/3) {
+	body { background: red; }
+	
+	.slides > article{
+		width: 90%;	  	
+	}
+}
 
 html{
 	background:url(../images/background.jpg) no-repeat center center fixed;
@@ -24,6 +70,7 @@ html{
     -moz-border-radius: 20px;
     -webkit-border-radius: 20px;
 }
+
 body {
   margin: 0;
   padding: 0;
@@ -37,6 +84,10 @@ body {
   overflow-y: hidden;
   
   -webkit-font-smoothing: antialiased;
+}
+
+.for_aspect_ratio {
+	margin-top: 75%;  /*used for aspect ratio, is 75% of the width of the container*/
 }
 
 .slides {	
@@ -55,14 +106,9 @@ body {
 .slides > article{
 	position: absolute; 
     display: inline-block;
-	width: 90%;
-  	max-width: 1100px;
   	left: 5%;
   	top: 5%;
-}
-
-.for_aspect_ratio {
-	margin-top: 75%;  /*used for aspect ratio, is 75% of the width of the container*/
+  	max-width: 1100px;
 }
 
 .full_container  {
